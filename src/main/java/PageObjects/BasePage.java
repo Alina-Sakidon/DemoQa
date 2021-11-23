@@ -1,8 +1,10 @@
 package PageObjects;
 
 
+import Conponents.Helper.Colors;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.support.Color;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -15,7 +17,8 @@ public  abstract class BasePage {
             return instance;
         }
 
-    protected void clickButton(SelenideElement button) {
-        button.shouldBe(Condition.visible).shouldBe(Condition.enabled).click();
+
+    protected boolean isElementRed(SelenideElement element, String cssValue){
+        return Color.fromString(element.getCssValue(cssValue)).asHex().equals(Colors.redColor);
     }
 }

@@ -3,6 +3,8 @@ package Conponents;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 public class User {
@@ -14,5 +16,18 @@ public class User {
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.gender = gender;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return fullName.equals(user.fullName) && phoneNumber.equals(user.phoneNumber) && gender.equals(user.gender);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, phoneNumber, gender);
     }
 }

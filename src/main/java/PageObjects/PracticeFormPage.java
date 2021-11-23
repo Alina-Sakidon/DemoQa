@@ -35,7 +35,7 @@ public class PracticeFormPage extends BasePage{
         break;
             case FEMALE:genderRadioFemale.shouldBe(Condition.matchText("Female")).shouldBe(Condition.enabled).click();
             break;
-            case OTHER:genderRadioFemale.shouldBe(Condition.matchText("Other")).shouldBe(Condition.enabled).click();
+            case OTHER:genderRadioOther.shouldBe(Condition.matchText("Other")).shouldBe(Condition.enabled).click();
                 break;
             default:break;
         }
@@ -45,7 +45,12 @@ public class PracticeFormPage extends BasePage{
         return setValue(inputMobilePhone, user.getPhoneNumber().getCountryCode()+user.getPhoneNumber().getOperatorCode()+user.getPhoneNumber().getAbonentNumber(),this);
     }
 
-    public PracticeFormPage submitForm(){
+    public SubmitedPracticeFormPage submitForm(){
+        submitButton.scrollIntoView(true).click();
+        return new SubmitedPracticeFormPage();
+    }
+
+    public PracticeFormPage submitFormWitEmptyFields(){
         submitButton.scrollIntoView(true).click();
         return new PracticeFormPage();
     }
@@ -54,6 +59,18 @@ public class PracticeFormPage extends BasePage{
     public PracticeFormPage fillReqFields(User user){
         setFirstName(user).setLastName(user).setGender(user).setPhoneNumber(user);
         return this;
+    }
+    public boolean isFirstNameRequired(){
+        return isElementRed(inputFirstName,"border-color");
+    }
+    public  boolean isLastNameRequired(){
+        return isElementRed(inputLastName,"border-color");
+    }
+    public boolean isGenderRequired(){
+       return isElementRed(genderRadioFemale,"color")&& isElementRed(genderRadioMale,"color") && isElementRed(genderRadioOther,"color");
+    }
+    public boolean isMobilePhoneRequired(){
+        return isElementRed(inputMobilePhone,"border-color");
     }
 
 }

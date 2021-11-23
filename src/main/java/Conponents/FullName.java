@@ -3,6 +3,8 @@ package Conponents;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 public class FullName {
@@ -16,5 +18,18 @@ public class FullName {
     @Override
     public String toString(){
         return firstName +" "+lastName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FullName fullName = (FullName) o;
+        return firstName.equals(fullName.firstName) && lastName.equals(fullName.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName);
     }
 }
