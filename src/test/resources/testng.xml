@@ -3,7 +3,8 @@
 <suite name="Test suite">
     <test name="UiTest">
         <classes>
-            <class name="Cases"/>
+            <class name="Case1"/>
+            <class name="Case2"/>
         </classes>
     </test>
 </suite>

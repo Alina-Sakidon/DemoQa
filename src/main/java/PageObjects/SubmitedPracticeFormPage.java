@@ -4,6 +4,7 @@ import Conponents.*;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import java.util.HashMap;
@@ -25,6 +26,8 @@ public class SubmitedPracticeFormPage extends BasePage{
 
         return firstRow.lastChild().getText();
     }
+
+    @Step("Read  information of student")
     public User getStudentInfo(){
 
         String studentName = getLabelTextFromTable("Student Name");

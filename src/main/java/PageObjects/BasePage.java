@@ -6,10 +6,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.Color;
 
-import static com.codeborne.selenide.Selenide.$;
 
 public  abstract class BasePage {
-    public SelenideElement pageTitle = $(".main-header");
 
     protected <T> T setValue(SelenideElement element, String text, T instance) {
         element.clear();

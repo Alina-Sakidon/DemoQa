@@ -1,5 +1,6 @@
 package Conponents;
 
+import io.qameta.allure.Step;
 import lombok.Getter;
 import lombok.Setter;
 
