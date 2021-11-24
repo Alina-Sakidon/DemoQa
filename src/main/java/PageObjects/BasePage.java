@@ -11,14 +11,14 @@ import static com.codeborne.selenide.Selenide.$;
 public  abstract class BasePage {
     public SelenideElement pageTitle = $(".main-header");
 
-        protected <T> T setValue(SelenideElement element, String text, T instance) {
-            element.clear();
-            element.sendKeys(text);
-            return instance;
-        }
+    protected <T> T setValue(SelenideElement element, String text, T instance) {
+        element.clear();
+        element.sendKeys(text);
+        return instance;
+    }
 
 
     protected boolean isElementRed(SelenideElement element, String cssValue){
-        return Color.fromString(element.getCssValue(cssValue)).asHex().equals(Colors.redColor);
+        return Color.fromString(element.shouldBe(Condition.visible).getCssValue(cssValue)).asHex().equals(Colors.redColor);
     }
 }

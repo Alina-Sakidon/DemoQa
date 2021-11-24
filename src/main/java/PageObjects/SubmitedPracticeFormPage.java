@@ -25,7 +25,7 @@ public class SubmitedPracticeFormPage extends BasePage{
 
         return firstRow.lastChild().getText();
     }
-    public User getStudent(){
+    public User getStudentInfo(){
 
         String studentName = getLabelTextFromTable("Student Name");
         String[] splitStr = studentName.split("\\s+");
@@ -38,6 +38,7 @@ public class SubmitedPracticeFormPage extends BasePage{
         String studentCountryCode = studentMobile.substring(0,2);
         String studentOperatorCode = studentMobile.substring(2,5);
         String studentAbonentNumber = studentMobile.substring(5);
+
         User student = new User(new FullName(studentFirstName,studentLastName), new PhoneNumber(studentCountryCode,studentOperatorCode,
                 studentAbonentNumber),new Gender(GenderType.valueOf(studentGender.toUpperCase())));
         return student;

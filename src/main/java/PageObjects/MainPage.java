@@ -13,7 +13,6 @@ public class MainPage extends BasePage{
     private ElementsCollection listOfCards = $$x("//div[@class=\"card mt-4 top-card\"]");
 
     public MainPage(){
-        super();
         homeBody.shouldBe(Condition.exist);};
 
 

@@ -6,7 +6,6 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class FormsPage extends BasePage{
@@ -14,7 +13,6 @@ public class FormsPage extends BasePage{
     private SelenideElement practiceFormButton = $$(By.className("text")).findBy(Condition.text("Practice Form"));
 
     public FormsPage(){
-        super();
         leftPanel.should(CollectionCondition.sizeGreaterThan(0));
     }
     public PracticeFormPage goToPracticeFormPage(){

@@ -31,18 +31,22 @@ public class PracticeFormPage extends BasePage{
     }
     public  PracticeFormPage setGender(User user){
         switch (user.getGender().getGenderType()){
-            case MALE:genderRadioMale.shouldBe(Condition.matchText("Male")).shouldBe(Condition.enabled).click();
-        break;
-            case FEMALE:genderRadioFemale.shouldBe(Condition.matchText("Female")).shouldBe(Condition.enabled).click();
-            break;
-            case OTHER:genderRadioOther.shouldBe(Condition.matchText("Other")).shouldBe(Condition.enabled).click();
+            case MALE:
+                genderRadioMale.shouldBe(Condition.matchText("Male")).shouldBe(Condition.enabled).click();
+                break;
+            case FEMALE:
+                genderRadioFemale.shouldBe(Condition.matchText("Female")).shouldBe(Condition.enabled).click();
+                break;
+            case OTHER:
+                genderRadioOther.shouldBe(Condition.matchText("Other")).shouldBe(Condition.enabled).click();
                 break;
             default:break;
         }
         return this;
     }
     public PracticeFormPage setPhoneNumber(User user){
-        return setValue(inputMobilePhone, user.getPhoneNumber().getCountryCode()+user.getPhoneNumber().getOperatorCode()+user.getPhoneNumber().getAbonentNumber(),this);
+        return setValue(inputMobilePhone, user.getPhoneNumber().getCountryCode()+user.getPhoneNumber().getOperatorCode()
+                +user.getPhoneNumber().getAbonentNumber(),this);
     }
 
     public SubmitedPracticeFormPage submitForm(){
@@ -52,9 +56,9 @@ public class PracticeFormPage extends BasePage{
 
     public PracticeFormPage submitFormWitEmptyFields(){
         submitButton.scrollIntoView(true).click();
+        inputFirstName.scrollIntoView(false);
         return new PracticeFormPage();
     }
-
 
     public PracticeFormPage fillReqFields(User user){
         setFirstName(user).setLastName(user).setGender(user).setPhoneNumber(user);
