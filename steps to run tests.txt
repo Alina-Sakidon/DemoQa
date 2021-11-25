@@ -1,0 +1,11 @@
+Steps to run tests:
+Pre-conditions: must have installed:
+- java version "11.0.11"
+- Apache Maven 3.8.1
+-IntelliJ IDEA 
+1. Download repository https://github.com/Alina-Sakidon/DemoQa.git
+2. Open the file DemoQa\src\test\java\Case1.java via  IntelliJ IDEA 
+3. Click menu Build-> Buil Project
+4. Run tests from context menu of testng.xml file \DemoQa\src\test\resources
+5. Look at console and check that tests were completed successfully : You'll see:
+Total tests run: 2, Passes: 2, Failures: 0, Skips: 0
